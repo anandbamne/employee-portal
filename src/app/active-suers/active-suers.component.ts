@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginServiceService } from '../login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-active-suers',
@@ -13,7 +14,7 @@ export class ActiveSuersComponent {
   pageSize = 10; // Number of items per page
   totalUsers = 0; // Total number of users
 
-  constructor(private apiService:LoginServiceService){}
+  constructor(private apiService:LoginServiceService,public router:Router){}
   ngOnInit(): void {
     this.fetch();
   }

@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddUserService } from '../services/add-user.service';
 import { successAlert } from '../utils/alerts.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-total-use',
@@ -22,7 +23,7 @@ export class TotalUseComponent implements OnInit {
   totalUsers = 0;
   searchTerm = new Subject<string>();
 
-  constructor(private apiService: LoginServiceService,public modalService:NgbModal,public userService:AddUserService) {}
+  constructor(private apiService: LoginServiceService,public modalService:NgbModal,public userService:AddUserService,public router:Router) {}
 
   ngOnInit(): void {
     this.fetch();

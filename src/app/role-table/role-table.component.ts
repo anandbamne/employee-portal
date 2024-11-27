@@ -6,6 +6,7 @@ import { RolesDetailsComponent } from '../roles-details/roles-details.component'
 import { AddUserService } from '../services/add-user.service';
 import { successAlert } from '../utils/alerts.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-role-table',
@@ -51,7 +52,7 @@ export class RoleTableComponent {
   roles:any;
   constructor(private apiService:LoginServiceService
     ,private modalService: NgbModal,
-    private userService:AddUserService,
+    private userService:AddUserService,public router:Router,
   public fb:FormBuilder){}
   ngOnInit(): void {
     this.fetch();

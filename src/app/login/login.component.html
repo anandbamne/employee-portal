@@ -1,0 +1,44 @@
+<!-- login.component.html -->
+<div class="main-div">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light naVbar-custom fixed-top" style="background-color: darkblue;font-size: 20px;padding: 15px;display: block;">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto" href="#" style="font-size: 28px">Employee Mangment Portal</a>
+    </div>
+  </nav>
+
+  <!-- Login Form -->
+  <div class="row justify-content-center align-items-center" style="margin-top: 11%;margin-bottom: 10%;" >
+    <div class="col-md-4 col-sm-6 col-10">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title text-center">Login</h2>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Email Input -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" formControlName="email" />
+              <!-- Validation Error for Email -->
+              <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger">
+                <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required.</small>
+                <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format.</small>
+              </div>
+            </div>
+            <!-- Password Input -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password" />
+              <!-- Validation Error for Password -->
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger">
+                <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required.</small>
+                <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</small>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid" style="background-color: darkblue;">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

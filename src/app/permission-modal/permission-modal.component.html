@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h5 class="modal-title">Modify Permissions</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="this.activeModal.dismiss()"></button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="permissionForm" (ngSubmit)="onSubmit()">
+      <!-- Read-only ID field -->
+      <div class="mb-3">
+        <label for="id" class="form-label">Name</label>
+        <input id="id" type="text" class="form-control" formControlName="name" readonly />
+      </div>
+  
+      <!-- Editable Role Name field -->
+      <div class="mb-3">
+        <label for="roleName" class="form-label">Role Name <span style="color: red;">*</span></label>
+        <input
+          id="roleName"
+          type="text"
+          class="form-control"
+          formControlName="role"
+          placeholder="Enter Role Name"
+          readonly/>
+      </div>
+      <div class="mb-3">
+        <label for="permissions" class="form-label">Permissions <span style="color: red;">*</span></label>
+        <select id="permissions" class="form-select" formControlName="permissions">
+          <option value="">Select Permission</option>
+          <option value="all">All</option>
+          <option value="read">Read</option>
+          <option value="write">Write</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  
+  <div class="modal-footer d-flex justify-content-center">
+    <button class="btn btn-primary" [disabled]="permissionForm.invalid" (click)="onSubmit()">Submit</button>
+  </div>
+  

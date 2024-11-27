@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg" style="background-color: darkblue; font-size: 20px; padding: 15px;">
+  <div class="container-fluid">
+    <!-- Left side: Admin Portal -->
+    <a class="navbar-brand text-white" href="#">
+      Anand Bamne Pvt
+    </a>
+
+    <!-- Middle: Employee Management Portal -->
+    <div class="navbar-collapse justify-content-center d-none ">
+      <span class="navbar-text text-white fw-bold text-center">
+        Employee Management Portal
+      </span>
+    </div>
+
+    <!-- Right side: User photo, username, and dropdown -->
+    <div class="d-flex align-items-center flex-shrink-0">
+      <!-- User photo -->
+      <img 
+        src="https://via.placeholder.com/30" 
+        alt="User Photo" 
+        class="rounded-circle me-2"
+        width="30" 
+        height="30"
+      />
+      
+      <!-- Username -->
+      <span class="me-2 text-white d-none d-sm-inline">{{ userData?.name || 'User' }}</span>
+
+      <!-- Dropdown menu -->
+      <div class="dropdown" ngbDropdown>
+        <button
+          class="btn btn-link text-white dropdown-toggle p-0"
+          id="userMenuDropdown"
+          ngbDropdownToggle
+          aria-expanded="false">
+          <i class="bi bi-caret-down-fill"></i>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu aria-labelledby="userMenuDropdown">
+          <li><a class="dropdown-item" href="#">View Profile</a></li>
+          <li><a class="dropdown-item text-danger" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

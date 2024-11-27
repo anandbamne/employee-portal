@@ -1,0 +1,121 @@
+<app-header></app-header>
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="margin-top: 100px; margin-left: 6%">
+  <ol class="breadcrumb" style="margin-top: 20px;">
+    <li class="breadcrumb-item">
+      <a href="/home" style="text-decoration: none; font-size: 16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-size: 16px;">
+      Roles Details
+    </li>
+  </ol>
+</nav>
+
+<!-- Container -->
+<div class="container mb-5">
+  <!-- Card -->
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>Roles Information</h5>
+      <button class="btn btn-success" (click)="openRoleModal()">
+        Add Role
+      </button>
+    </div>
+    <div class="card-body">
+      <!-- Responsive Table -->
+      <div class="table-responsive">
+        <table class="table table-bordered text-center"> <!-- Added text-center for centering -->
+          <thead class="table-light">
+            <tr>
+              <th>S.No</th>
+              <th>Created By</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of activeUsers; let i = index">
+              <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+              <td>{{ user.createdBy }}</td>
+              <td>{{ user.role }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm p-2" (click)="deleteRecord(user.id)" >Delete</button> &nbsp;
+                <button class="btn btn-primary btn-sm p-2" (click)="openOnEditModal(editModal,user)" >Edit</button>
+               
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="d-flex justify-content-end">
+        <ngb-pagination
+          [(page)]="currentPage"
+          [pageSize]="pageSize"
+          [collectionSize]="totalUsers"
+          (pageChange)="onPageChange($event)"
+          [maxSize]="5"
+          aria-label="Pagination"
+        >
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- NgbModal Template -->
+<ng-template #editModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Edit User Role</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm">
+
+      <!-- Created By Field (Read-Only) -->
+      <div class="mb-3">
+        <label for="createdBy" class="form-label">Created By</label>
+        <input
+          id="createdBy"
+          type="text"
+          class="form-control"
+          formControlName="createdBy"
+          readonly
+        />
+      </div>
+
+      <!-- Role Field (Editable) -->
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select
+          id="role"
+          class="form-select"
+          formControlName="role"
+        >
+          <option value="" disabled>Select a role</option>
+          <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+        </select>
+        <div *ngIf="editForm.get('role')?.invalid && editForm.get('role')?.touched" class="text-danger">
+          Role is required.
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer d- flex justify-content-center align-items-center">
+    <button
+      type="button"
+      class="btn btn-primary p-2"
+      [disabled]="editForm.invalid"
+      (click)="save()">
+      Save
+    </button>
+  </div>
+</ng-template>

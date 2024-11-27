@@ -1,0 +1,69 @@
+/* login.component.css */
+
+/* Ensure the body and html take the full height */
+.main-div {
+  height: 100%;
+  margin: 0;
+  overflow: hidden !important;
+}
+
+/* Set background color */
+body {
+  background-color: #f4f7fc;
+  overflow: hidden; /* Disable scrolling */
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+
+/* Card styling */
+.card {
+  border-radius: 8px;
+  width: 100%;
+  max-width:600px; /* Ensure the card has a max-width */
+  margin: 0 auto; /* Center it horizontally */
+}
+
+/* Card body padding */
+.card-body {
+  padding: 30px;
+}
+
+/* Form input label styling */
+.form-label {
+  font-size: 20px;
+}
+
+/* Button styling */
+.btn {
+  font-size: 16px;
+  padding: 12px;
+}
+
+/* Adjustments for smaller screen sizes */
+@media (max-width: 576px) {
+  .card-body {
+    padding: 20px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+}
+
+/* Ensure the login form takes full vertical space without scroll */
+.row.justify-content-center.align-items-center.min-vh-100 {
+  min-height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+  overflow: hidden; /* Prevent any overflow */
+}

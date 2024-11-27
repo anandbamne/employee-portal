@@ -1,0 +1,24 @@
+@media (min-width: 700px) and (max-width: 900px) {
+  .navbar-brand {
+    font-size: 18px; /* Reduce font size for 'Admin Portal' */
+  }
+  
+  .navbar-text {
+    font-size: 16px; /* Adjust font size for 'Company Portal' */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .navbar .d-none.d-md-flex {
+    display: flex !important; /* Ensure 'Employee Management Portal' stays visible */
+  }
+  
+  .d-flex.align-items-center img {
+    width: 25px;
+    height: 25px; /* Reduce profile picture size */
+  }
+  
+  .d-flex.align-items-center span {
+    font-size: 14px; /* Reduce font size for username */
+  }
+}

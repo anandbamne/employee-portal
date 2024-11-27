@@ -1,0 +1,154 @@
+[
+
+  {
+
+      "sideBarMainCode": "ABOUT",
+
+      "sideBarMainName": "About",
+
+      "icon": null,
+
+      "sideBarChilds": [
+
+          {
+
+              "childSideBarCode": "ABOUTUS",
+
+              "childSideBarName": "About Us",
+
+              "icon": null
+
+          },
+
+          {
+
+              "childSideBarCode": "CONTACTUS",
+
+              "childSideBarName": "Contact Us",
+
+              "icon": null
+
+          },
+
+          {
+
+              "childSideBarCode": "CAREERS",
+
+              "childSideBarName": "Careers",
+
+              "icon": null
+
+          }
+
+      ]
+
+  },
+
+  {
+
+      "sideBarMainCode": "HELP",
+
+      "sideBarMainName": "Help",
+
+      "icon": null,
+
+      "sideBarChilds": [
+
+         
+
+          {
+
+              "childSideBarCode": "FAQS",
+
+              "childSideBarName": "FAQ'S",
+
+              "icon": null
+
+          },
+
+          {
+
+              "childSideBarCode": "BECOMEASELLER",
+
+              "childSideBarName": "Become a Admin",
+
+              "icon": null
+
+          }
+
+      ]
+
+  },
+
+  {
+
+      "sideBarMainCode": "CONSUMERPOLICY",
+
+      "sideBarMainName": "Consumer Policy",
+
+      "icon": null,
+
+      "sideBarChilds": [
+
+    
+
+          {
+
+              "childSideBarCode": "PRIVACY",
+
+              "childSideBarName": "Privacy",
+
+              "icon": null
+
+          },
+
+          {
+
+              "childSideBarCode": "PRICING",
+
+              "childSideBarName": "Pricing",
+
+              "icon": null
+
+          },
+
+          {
+
+              "childSideBarCode": "SEQURITY",
+
+              "childSideBarName": "Sequrity",
+
+              "icon": null
+
+          }
+
+      ]
+
+  },
+
+  {
+
+      "sideBarMainCode": "MAILUS",
+
+      "sideBarMainName": "Mail Us",
+
+      "icon": null,
+
+      "sideBarChilds": [
+
+          {
+
+              "childSideBarCode": "TODAYPANCHANG",
+
+              "childSideBarName": "Anand Bhausaheb Bamne mail:anandbamne@gmail.com",
+
+              "icon": null
+
+          }
+
+      ]
+
+  }
+
+]
+

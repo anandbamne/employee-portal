@@ -1,0 +1,60 @@
+/* Background for Card 1 */
+.bg-card1 {
+    margin:10px;
+    height: 124px;
+    background: url('../../assets/home_page_img/card-1.png') no-repeat center center;
+    background-size: cover;
+    color: white; /* Ensure text is readable */
+  }
+  
+  /* Background for Card 2 */
+  .bg-card2 {
+    margin:10px;
+    height: 124px;
+    background: url('../../assets/home_page_img/card-2.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+  }
+  
+  /* Background for Card 3 */
+  .bg-card3 {
+    margin:10px;
+    height: 124px;
+    background: url('../../assets/home_page_img/card-3.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+  }
+  
+  /* Background for Card 4 */
+  .bg-card4 {
+    margin:10px;
+    height: 124px;
+    background: url('../../assets/home_page_img/card-4.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+  }
+  
+  /* Ensure text inside cards is styled for readability */
+  .card h5, .card p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth zoom effect */
+    cursor: pointer;
+  }
+  
+  /* Zoom-In Effect on Hover */
+  .card:hover {
+    transform: scale(1.05); /* Slight zoom-in */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  }
+  app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other elements */
+    background-color: #ffffff; /* Optional: Set a background color */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+  }
+ 

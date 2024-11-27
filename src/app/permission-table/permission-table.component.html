@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+<nav aria-label="breadcrumb" style="margin-top: 100px; margin-left:6%">
+  <ol class="breadcrumb" style="margin-top: 20px;">
+    <li class="breadcrumb-item">
+      <a href="/home" style="text-decoration: none; font-size: 16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page" style="font-size: 16px;">User Information</li>
+  </ol>
+</nav>
+
+<div class="container mb-5">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>Permission Informations</h5>
+        <!-- Add User Button -->
+        <button class="btn btn-success" (click)=" openModal() ">
+           + Add User
+          </button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>User Name</th>
+                <th>Permissions</th>
+                <th>Phone Number</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of activeUsers; let i = index">
+                <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.permissions | uppercase}}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.role }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.userStatus }}</td>
+                
+                <td>
+                  <button class="btn btn-sm btn-warning" (click)="openOnEditModal(editModal,user)">Give Permissions</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-end">
+          <ngb-pagination
+            [(page)]="currentPage"
+            [pageSize]="pageSize"
+            [collectionSize]="totalUsers"
+            (pageChange)="onPageChange($event)"
+            [maxSize]="5"
+            aria-label="Pagination"
+          >
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+<!-- Modal Template -->
+<ng-template #editModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Edit User</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm">
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" readonly />
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" readonly />
+      </div>
+
+      <!-- User Status -->
+      <div class="mb-3">
+        <label for="userStatus" class="form-label">Status</label>
+        <input type="text" id="userStatus" class="form-control" formControlName="userStatus" readonly />
+      </div>
+
+      <!-- Role -->
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select id="role" class="form-select" formControlName="role">
+          <option value="">Select Role</option>
+          <option value="all">All</option>
+          <option value="read">Read</option>
+          <option value="write">Write</option>
+        </select>
+        <div *ngIf="editForm.get('role')?.invalid && editForm.get('role')?.touched" class="text-danger">
+          Role is required.
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer d-flex justify-content-center align-items-center">
+    <button type="button" class="btn btn-success" [disabled]="editForm.invalid" (click)="saveChanges()">Save</button>
+  </div>
+</ng-template>

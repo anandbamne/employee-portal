@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="home-component" style="margin-top: 100px;">
+  <div class="welcome m-3">
+    <h2 class="d-flex align-items-center">Welcome, Admin!</h2>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="stats row" style="display: flex; flex-wrap: wrap; margin: 10px;">
+    <!-- Total Users Card -->
+    <div class="col-md-3">
+      <div class="card shadow bg-card2" style="cursor: pointer;" (click)="this.router.navigateByUrl('/total_user')">
+        <div class="card-body">
+          <h5 class="d-flex justify-content-center align-items-center m-4">Total Empployees: {{ totalUser }}</h5>
+          <a class="d-flex justify-content-end" style="color: white; text-decoration: none;">View More..</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Users Card -->
+    <div class="col-md-3">
+      <div class="card shadow bg-card1" style="cursor: pointer;" (click)="this.router.navigateByUrl('/active-user')" >
+        <div class="card-body">
+          <h5 class="d-flex justify-content-center align-items-center m-4">Active Employees: {{ totalActiveUser }}</h5>
+          <a class="d-flex justify-content-end" style="color: white; text-decoration: none;">View More..</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roles Defined Card -->
+    <div class="col-md-3">
+      <div class="card shadow bg-card3" style="cursor: pointer;" (click)="this.router.navigateByUrl('/role-details')">
+        <div class="card-body">
+          <h5 class="d-flex justify-content-center align-items-center m-4">Roles Defined</h5>
+          <a class="d-flex justify-content-end" style="color: white; text-decoration: none;">View More..</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Permissions Configured Card -->
+    <div class="col-md-3">
+      <div class="card shadow bg-card4" style="cursor: pointer;" (click)="this.router.navigateByUrl('/permission-details')">
+        <div class="card-body">
+          <h5 class="d-flex justify-content-center align-items-center m-4">Update Permissions</h5>
+          <a class="d-flex justify-content-end" style="color: white; text-decoration: none;">View More..</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions m-4">
+    <h4 class="m-4">Quick Actions</h4>
+    <button class="btn btn-primary m-2" (click)="openModal()">Add New Employee</button>
+    <button class="btn btn-secondary m-2" (click)="openRoleModal()">Create New Role</button>
+    <button class="btn btn-warning m-2" (click)="this.router.navigateByUrl('/permission-details')">View Permissions Details</button>
+  </div>
+</div>

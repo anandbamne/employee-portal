@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h5 class="modal-title">Create New Role</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="this.activeModal.dismiss()"></button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+      <!-- Read-only ID field -->
+      <div class="mb-3">
+        <label for="id" class="form-label">Created By</label>
+        <input id="id" type="text" class="form-control" formControlName="createdBy" readonly />
+      </div>
+  
+      <!-- Editable Role Name field -->
+      <div class="mb-3">
+        <label for="roleName" class="form-label">Role Name <span style="color: red;">*</span></label>
+        <input
+          id="roleName"
+          type="text"
+          class="form-control"
+          formControlName="role"
+          placeholder="Enter Role Name"
+          required
+        />
+        <div *ngIf="roleForm.get('roleName')?.invalid && roleForm.get('roleName')?.touched" class="text-danger">
+          Role name is required and must be at least 3 characters.
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div class="modal-footer d-flex justify-content-center">
+    <button class="btn btn-primary" [disabled]="roleForm.invalid" (click)="onSubmit()">Submit</button>
+  </div>
+  
